@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>案例分类</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="./css/font.css">
+        <link rel="stylesheet" href="./css/xadmin.css">
+        <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="./js/xadmin.js"></script>
+        <script type="text/javascript" src="./js/allajax.js"></script>
+        <style>
+          .pagenum{
+            margin-left: 20px;
+            padding-bottom: 30px;
+          }
+          .layui-table img{
+            width: 90px;
+            height: 90px;
+          }
+        </style>
+    </head>
+    
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <button class="layui-btn layui-btn-danger" id="del">
+                                <i class="layui-icon"></i>批量删除</button>
+                                <button class="layui-btn" onclick="xadmin.open('添加','./case-add.html?caseid=-1&showtype=2',1300,800)">
+                                  <i class="layui-icon"></i>添加</button></div>
+                        <div class="layui-card-body ">
+                            <table id="demo" class="layui-table layui-form">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+  <script type="text/html" id="isrecommend">
+    {{# if(d.gid!=""){
+      if(d.recommend==1){
+        return '推荐'
+      }else{
+        return '不推荐'
+      }
+    }}
+    {{# } }}
+</script>
+<script type="text/html" id="imgcover">
+  {{# if(d.gid!=""){
+    if(d.cover!=''&&d.cover!=null&&d.cover!=undefined){
+      return "<img src='"+ d.cover + "'>"
+    }
+  }}
+  {{# } }}
+</script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" onclick="xadmin.open('查看','./case-add.html?caseid={{d.cid}}&showtype=1',1300,800)" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" onclick="xadmin.open('修改','./case-add.html?caseid={{d.cid}}&showtype=2',1300,800)" lay-event="detail">修改</a>
+      </script>
+    <script type="text/javascript" src="./js/case-list.js"></script>
+
+</html>
